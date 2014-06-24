@@ -1,0 +1,2 @@
+--reporter spec
+-t 360000

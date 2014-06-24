@@ -1,0 +1,30 @@
+{
+  "name": "qurio-text-format",
+  "version": "0.0.0",
+  "description": "The Qurio text format allows anyone to write questionnaire's in an easy-to-read, easy-to-write, open, plain text format. By converting questionnaire's into JSON, their content can also be imported into http://qurio.co",
+  "main": "grammar.js",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/edgecampus/qurio-text-format.git"
+  },
+  "keywords": [
+    "multiple",
+    "choice",
+    "question",
+    "mcq",
+    "mcq's"
+  ],
+  "author": "Rudolf Meijering",
+  "license": "LGPLv3",
+  "bugs": {
+    "url": "https://github.com/edgecampus/qurio-text-format/issues"
+  },
+  "devDependencies": {
+    "underscore": "~1.6.0",
+    "should": "~4.0.4",
+    "pegjs": "~0.8.0"
+  }
+}

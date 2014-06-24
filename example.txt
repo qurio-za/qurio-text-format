@@ -1,0 +1,27 @@
+A single line question about chocolates, choose one?
+  - Snickers
+    e
+  - Cadburry
+  - Lindt [correct]
+  - Beacon
+
+A multiline question about chocolate,
+choose one?
+  - Snickers
+  - Cadburry
+  - Lindt [correct]
+  - Beacon
+
+A multi-paragraph question about chocolate,
+
+choose one?
+  - Snickers
+  - Cadburry
+  - Lindt [correct]
+  - Beacon
+
+A single line question with multiline answers?
+  - One line
+    second line. [correct]
+  - A single line
+  - A third single line
