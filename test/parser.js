@@ -15,14 +15,19 @@ ANSWER = {
   MULTI_PARAGRAPH: "It's a \n\n  multi-paragraph question."
 }
 
-test = function (question, answers, done) {
+test = function (question, answers, options, done) {
+  done = done || options;
   if (!_.isArray(answers)) {answers = [answers]};
+  
   var str = question;
+  if (options.type)
+    str = '['+ options.type + ']\n' + str;
+
   answers.forEach(function(a){ str += '\n  - ' + a;})
 
   try {
     var out = grammar.parse(str);
-    out.should.eql(toJSON(question, answers))
+    out.should.eql(toJSON(question, answers, options))
     done();
   } catch(e) {
     var err = new Error('Unable to parse string "' + str + '": ' + e.message)
@@ -30,15 +35,16 @@ test = function (question, answers, done) {
   }
 }
 
-toJSON = function (question, answers) {
+toJSON = function (question, answers, options) {
   var json = {questions: [
     {
-      title: question,
+      title: question.replace(/\n/g, '<br>'),
       answers: _.map(answers, function(a){
-        return {title: a.replace('\n\n  ', '\n').replace('\n  ', '\n')};
-      })
-    }
-  ]}
+        return {title: a.replace('\n\n  ', '<br>').replace('\n  ', '<br>')};
+      }),
+      type: options.type || 'multiplechoice'
+    }]
+  }
   return json;
 }
 
@@ -101,6 +107,18 @@ describe('Grammar correctly parses', function (done) {
     it('mixed answers', function (done) {
       test(QUESTION.MULTI_PARAGRAPH, _.values(ANSWER), done);
     })
+  })
+
+  describe('allows specifying question type as', function(done) {
+
+    it('multiple choice', function (done) {
+      test(QUESTION.SINGLE_LINE, _.values(ANSWER), {type: 'multiplechoice'}, done);
+    })
+
+    it('checkbox', function (done) {
+      test(QUESTION.MULTI_PARAGRAPH, _.values(ANSWER), {type: 'checkbox'}, done);
+    })
+
   })
 
 })

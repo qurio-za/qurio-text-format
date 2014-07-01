@@ -18,7 +18,7 @@ Question =
   }
 
 QuestionType 'question type' =
-  WS* '[' type:QUESTION_TYPES ']' WS* NL {return type;}
+  '[' type:QUESTION_TYPES ']' NL {return type;}
 
 QUESTION_TYPES =
   'multiplechoice'
@@ -52,7 +52,7 @@ Line =
 Option =
   '[correct]' {return 'correct'}
 
-Bullet = NL WS* '-' WS+
+Bullet = NL WS* '-' WS*
 
 Indent = '\t' / WS WS+
 
