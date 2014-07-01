@@ -1,27 +1,28 @@
-A single line question about chocolates, choose one?
+Which of these is my favorite chocolate? (single-line question text)
   - Snickers
-    e
-  - Cadburry
+  - Cadbury
   - Lindt [correct]
   - Beacon
 
-A multiline question about chocolate,
-choose one?
+Which of these is my favorite chocolate?
+Have a guess! (multi-line question text)
   - Snickers
-  - Cadburry
+  - Cadbury
   - Lindt [correct]
   - Beacon
 
-A multi-paragraph question about chocolate,
+Which of these is my favorite chocolate?
 
-choose one?
+Have a guess! (multi-paragraph question text)
   - Snickers
-  - Cadburry
+  - Cadbury
   - Lindt [correct]
   - Beacon
 
-A single line question with multiline answers?
-  - One line
-    second line. [correct]
-  - A single line
-  - A third single line
+Which of these is my favorite chocolate?  (multi-line answer text)
+  - Snickers
+    Very nice!
+  - Cadbury is excellent!
+  - Lindt
+    Very tasty! [correct]
+  - Beacon is just amazing!
