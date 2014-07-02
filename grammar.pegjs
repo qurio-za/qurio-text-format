@@ -1,10 +1,12 @@
+// v 0.0.2
+
 start = Qurio
 
 Qurio =
-  q:Question+ {return {questions:q}}
+  NL* q:Question+ {return {questions:q}}
 
 Question =
-  NL? type:QuestionType? t:QuestionTitle a:Answer+ NL {
+  type:QuestionType? t:QuestionTitle a:Answer+ NL* {
     question = {title: t, answers: a}
     
     if (type) {
@@ -38,7 +40,7 @@ Answer 'an answer' = WS* Bullet l1:Line l2:IndentedBlock? o:Option? {
   }
 
 IndentedBlock =
-  lines:(!Bullet !Option (NL NL / NL) Indent Line)* {
+  lines:(!Bullet !Option NL+ Indent Line)* {
     data = '';
     for (i = 0; i < lines.length; i++) {
       data += '\n' + lines[i][4];
@@ -50,9 +52,9 @@ Line =
   l:$(!NL !Option .)+ {return l;}
 
 Option =
-  '[correct]' {return 'correct'}
+  WS* '[correct]' {return 'correct'}
 
-Bullet = NL WS* '-' WS+
+Bullet = NL+ WS* '-' WS+
 
 Indent = '\t' / WS WS+
 
@@ -61,6 +63,3 @@ WS = ' ' / '\t'
 NL =
   '\n'
   / '\r' '\n'?
-  / EOF
-
-EOF = !.

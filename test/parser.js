@@ -48,65 +48,70 @@ toJSON = function (question, answers, options) {
   return json;
 }
 
-describe('Grammar correctly parses', function (done) {
+describe('Qurio text format grammar', function (done) {
 
-  describe('single line question with', function(done) {
+  describe('correctly parses', function (done) {
 
-    it('single line answers', function (done) {
-      test(QUESTION.SINGLE_LINE, ANSWER.SINGLE_LINE, done);
+    describe('single line question with', function(done) {
+
+      it('single line answers', function (done) {
+        test(QUESTION.SINGLE_LINE, ANSWER.SINGLE_LINE, done);
+      })
+
+      it('multi-line answers', function (done) {
+        test(QUESTION.SINGLE_LINE, ANSWER.MULTI_LINE, done);
+      })
+
+      it('multi-paragraph answers', function (done) {
+        test(QUESTION.SINGLE_LINE, ANSWER.MULTI_PARAGRAPH, done);
+      })
+
+      it('mixed answers', function (done) {
+        test(QUESTION.SINGLE_LINE, _.values(ANSWER), done);
+      })
+
     })
 
-    it('multi-line answers', function (done) {
-      test(QUESTION.SINGLE_LINE, ANSWER.MULTI_LINE, done);
+    describe('multi-line question with', function(done) {
+      
+      it('single line answers', function (done) {
+        test(QUESTION.MULTI_LINE, ANSWER.SINGLE_LINE, done);
+      })
+
+      it('multi-line answers', function (done) {
+        test(QUESTION.MULTI_LINE, ANSWER.MULTI_LINE, done);
+      })
+
+      it('multi-paragraph answers', function (done) {
+        test(QUESTION.MULTI_LINE, ANSWER.MULTI_PARAGRAPH, done);
+      })
+
+      it('mixed answers', function (done) {
+        test(QUESTION.MULTI_LINE, _.values(ANSWER), done);
+      })
+
     })
 
-    it('multi-paragraph answers', function (done) {
-      test(QUESTION.SINGLE_LINE, ANSWER.MULTI_PARAGRAPH, done);
+    describe('multi-paragraph question with', function(done) {
+
+      it('single line answers', function (done) {
+        test(QUESTION.MULTI_PARAGRAPH, ANSWER.SINGLE_LINE, done);
+      })
+
+      it('multi-line answers', function (done) {
+        test(QUESTION.MULTI_PARAGRAPH, ANSWER.MULTI_LINE, done);
+      })
+
+      it('multi-paragraph answers', function (done) {
+        test(QUESTION.MULTI_PARAGRAPH, ANSWER.MULTI_PARAGRAPH, done);
+      })
+
+      it('mixed answers', function (done) {
+        test(QUESTION.MULTI_PARAGRAPH, _.values(ANSWER), done);
+      })
+   
     })
 
-    it('mixed answers', function (done) {
-      test(QUESTION.SINGLE_LINE, _.values(ANSWER), done);
-    })
-
-  })
-
-  describe('multi-line question with', function(done) {
-    
-    it('single line answers', function (done) {
-      test(QUESTION.MULTI_LINE, ANSWER.SINGLE_LINE, done);
-    })
-
-    it('multi-line answers', function (done) {
-      test(QUESTION.MULTI_LINE, ANSWER.MULTI_LINE, done);
-    })
-
-    it('multi-paragraph answers', function (done) {
-      test(QUESTION.MULTI_LINE, ANSWER.MULTI_PARAGRAPH, done);
-    })
-
-    it('mixed answers', function (done) {
-      test(QUESTION.MULTI_LINE, _.values(ANSWER), done);
-    })
-
-  })
-
-  describe('multi-paragraph question with', function(done) {
-
-    it('single line answers', function (done) {
-      test(QUESTION.MULTI_PARAGRAPH, ANSWER.SINGLE_LINE, done);
-    })
-
-    it('multi-line answers', function (done) {
-      test(QUESTION.MULTI_PARAGRAPH, ANSWER.MULTI_LINE, done);
-    })
-
-    it('multi-paragraph answers', function (done) {
-      test(QUESTION.MULTI_PARAGRAPH, ANSWER.MULTI_PARAGRAPH, done);
-    })
-
-    it('mixed answers', function (done) {
-      test(QUESTION.MULTI_PARAGRAPH, _.values(ANSWER), done);
-    })
   })
 
   describe('allows specifying question type as', function(done) {
