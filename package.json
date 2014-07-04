@@ -1,6 +1,6 @@
 {
   "name": "qurio-text-format",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The Qurio text format allows anyone to write questionnaire's in an easy-to-read, easy-to-write, open, plain text format. By converting questionnaire's into JSON, their content can also be imported into http://qurio.co",
   "main": "grammar.js",
   "scripts": {
